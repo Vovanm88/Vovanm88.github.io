@@ -1,5 +1,5 @@
 let globalParent=document.getElementById("main");
 let toDel=document.getElementById("jsdontwork");
-toDel.parentElement.removeChild(toDel);
+toDel.remove();
 
 globalParent.innerText="IT WORKS AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
