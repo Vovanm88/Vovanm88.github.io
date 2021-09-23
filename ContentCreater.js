@@ -6,7 +6,7 @@ class DayTable{
     mineHead.className="miniheader";
     mineHead.innerText=name;
     let mineBody=document.createElement("div");
-    mineBody.class="TableBody";
+    mineBody.className="TableBody";
     for(let i=0; i<contentArr.length; i++){
       let selement=document.createElement("span");
       selement.innerText=contentArr[i];
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   let globalParent = document.getElementById("main");
   let toDel = document.getElementById("jsdontwork");
   toDel.remove();
-  globalParent.innerText = "IT WORKS AAAAAAAAA";
+  //globalParent.innerText = "IT WORKS AAAAAAAAA";
   //
   const Monday = new DayTable("Monday", ["Ruskiy", "Math", "Phys"]);
   globalParent.appendChild(Monday.getTable());

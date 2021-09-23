@@ -5,27 +5,48 @@
   font-size: 16pt;
 }
 #main .table{
+  display: flex;
   border: 2px solid #1F1F1F;
   border-radius: 3px;
   position: relative;
+  width: fit-content;
+  padding: 4px;
+  padding-top: 0;
+  height: fit-content;
+  padding-bottom: 2.2rem;
+  margin: 2px;
 }
 #main .table .miniheader{
+  position: absolute;
+  top: 0;
+  left: 0;
   align-self: center;
-  border-bottom: 1px solid #3F3F5F;
+  border-bottom: 1.5px solid #3F3F5F;
   background: #DEDEDE;
   color: darkblue;
   text-align: center;
-
+  width: 100%;
+  flex: 1;
 }
+#main .table .miniheader.max{
+  flex: 1;
+}
+
 #main .table .TableBody{
   position: relative;
-  top: 4rem+2px;
-  color: #505050;
-  background-color: #C0C0C0;
+  top: 2rem;
+  color: #101010;
+  width: inherit;
+}
+#main .table .TableBody.max{
+  flex: 1;
 }
 #main .table .TableSpan{
   position: relative;
-  border-bottom: 1px solid #808080;
+  border-bottom: 1px solid #505050;
   margin-bottom: 1rem;
   padding-bottom: 1px;
+  width: inherit;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
