@@ -1,3 +1,31 @@
 #jsdontwork{
     text-decoration-color: crimson;
 }
+#main{
+  font-size: 16pt;
+}
+#main .table{
+  border: 2px solid #1F1F1F;
+  border-radius: 3px;
+  position: relative;
+}
+#main .table .miniheader{
+  align-self: center;
+  border-bottom: 1px solid #3F3F5F;
+  background: #DEDEDE;
+  color: darkblue;
+  text-align: center;
+
+}
+#main .table .TableBody{
+  position: relative;
+  top: 4rem+2px;
+  color: #505050;
+  background-color: #C0C0C0;
+}
+#main .table .TableSpan{
+  position: relative;
+  border-bottom: 1px solid #808080;
+  margin-bottom: 1rem;
+  padding-bottom: 1px;
+}
