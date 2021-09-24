@@ -35,4 +35,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
   globalParent.appendChild(Monday.getTable());
   const Tuesday = new DayTable("Tuesday", ["Neruskiy", "Chem", "Bio"]);
   globalParent.appendChild(Tuesday.getTable());
+  const Wednesday = new DayTable("Wednesday", ["Философия", "Dead", "Launch"]);
+  globalParent.appendChild(Wednesday.getTable());
+  const Thursday = new DayTable("Четверг", ["Опять", "Dead", "Launch"]);
+  globalParent.appendChild(Thursday.getTable());
+  const Friday = new DayTable("Пятница", ["Опять", "дипрешн", "Launch"]);
+  globalParent.appendChild(Friday.getTable());
 });
