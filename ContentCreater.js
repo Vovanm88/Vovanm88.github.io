@@ -31,14 +31,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
   toDel.remove();
   //globalParent.innerText = "IT WORKS AAAAAAAAA";
   //
-  const Monday = new DayTable("Monday", ["Ruskiy", "Math", "Phys"]);
+  const Monday = new DayTable("Понедельник", ["Русский", "Химия", "История", "Алгебра", "Ин.яз", "Практикум", "Русский2"]);
   globalParent.appendChild(Monday.getTable());
-  const Tuesday = new DayTable("Tuesday", ["Neruskiy", "Chem", "Bio"]);
+  const Tuesday = new DayTable("Вторник", ["Геометрия", "Физра", "Биология", "Общество", "Физика", "История", "Литра"]);
   globalParent.appendChild(Tuesday.getTable());
-  const Wednesday = new DayTable("Wednesday", ["Философия", "Dead", "Launch"]);
+  const Wednesday = new DayTable("Среда", ["Физра","Физика", "Ин.яз", "Общество", "Алгебра", "История", "Литра"]);
   globalParent.appendChild(Wednesday.getTable());
-  const Thursday = new DayTable("Четверг", ["Опять", "Dead", "Launch"]);
+  const Thursday = new DayTable("Четверг", ["Биология","Астрономия", "Литра", "Геометрия", "Химия", "Литра", "Практикум"]);
   globalParent.appendChild(Thursday.getTable());
-  const Friday = new DayTable("Пятница", ["Опять", "дипрешн", "Launch"]);
+  const Friday = new DayTable("Пятница", ["Информатика","География", "ОБЖ", "Ин.яз", "Практикум", "Физра"]);
   globalParent.appendChild(Friday.getTable());
 });
