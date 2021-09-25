@@ -1,10 +1,37 @@
 #jsdontwork{
     text-decoration-color: crimson;
 }
+.columns{
+  position: relative;
+}
 #main{
   font-size: 16pt;
 }
+.split {
+  height: 100%;
+  width: 33%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+}
+.middle {
+  left: 33%;
+}
+
 #main .table{
+
   display: flex;
   border: 2px solid #1F1F1F;
   border-radius: 3px;
@@ -15,6 +42,7 @@
   height: fit-content;
   padding-bottom: 2.2rem;
   margin: 1rem;
+
 }
 #main .table .miniheader{
   position: absolute;

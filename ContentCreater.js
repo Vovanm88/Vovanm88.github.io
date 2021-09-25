@@ -31,14 +31,22 @@ document.addEventListener('DOMContentLoaded', function(event) {
   toDel.remove();
   //globalParent.innerText = "IT WORKS AAAAAAAAA";
   //
+  let columns=[document.createElement('div'), document.createElement('div'), document.createElement('div')];
+
   const Monday = new DayTable("Понедельник", ["Русский", "Химия", "История", "Алгебра", "Ин.яз", "Практикум", "Русский2"]);
-  globalParent.appendChild(Monday.getTable());
+  columns[0].appendChild(Monday.getTable());
   const Tuesday = new DayTable("Вторник", ["Геометрия", "Физра", "Биология", "Общество", "Физика", "История", "Литра"]);
-  globalParent.appendChild(Tuesday.getTable());
+  columns[1].appendChild(Tuesday.getTable());
   const Wednesday = new DayTable("Среда", ["Физра","Физика", "Ин.яз", "Общество", "Алгебра", "История", "Литра"]);
-  globalParent.appendChild(Wednesday.getTable());
+  columns[2].appendChild(Wednesday.getTable());
   const Thursday = new DayTable("Четверг", ["Биология","Астрономия", "Литра", "Геометрия", "Химия", "Литра", "Практикум"]);
-  globalParent.appendChild(Thursday.getTable());
+  columns[0].appendChild(Thursday.getTable());
   const Friday = new DayTable("Пятница", ["Информатика","География", "ОБЖ", "Ин.яз", "Практикум", "Физра"]);
-  globalParent.appendChild(Friday.getTable());
+  columns[1].appendChild(Friday.getTable());
+  columns[0].className="split left";
+  columns[1].className="split middle"
+  columns[2].className="split right";;
+  globalParent.appendChild(columns[0]);
+  globalParent.appendChild(columns[1]);
+  globalParent.appendChild(columns[2]);
 });
