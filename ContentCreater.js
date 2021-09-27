@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   //
   let columns=[document.createElement('div'), document.createElement('div'), document.createElement('div')];
 
-  const Monday = new DayTable("Понедельник", ["Русский", "Химия", "История", "Алгебра", "Ин.яз", "Практикум", "Русский2"]);
+  const Monday = new DayTable("Понедельник", ["Русский", "Химия", "История", "Алгебра", "Ин.яз", "Алегбра", "Литра"]);
   columns[0].appendChild(Monday.getTable());
   const Tuesday = new DayTable("Вторник", ["Геометрия", "Физра", "Биология", "Общество", "Физика", "История", "Литра"]);
   columns[1].appendChild(Tuesday.getTable());
