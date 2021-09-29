@@ -1,5 +1,5 @@
 class DayTable{
-  constructor(name, contentArr){
+  constructor(name, contentArr, headcolor){
     let Table = document.createElement("div");
     Table.className = "table";
     let mineHead=document.createElement("span");
@@ -14,6 +14,9 @@ class DayTable{
       selement.appendChild(document.createElement("br"));
       mineBody.appendChild(selement);
     }
+    if(headcolor==true){
+      mineHead.className = "miniheader colored";
+    }
     Table.appendChild(mineHead);
     Table.appendChild(mineBody);
     //document.getElementById("main").appendChild(Table);
@@ -25,6 +28,13 @@ class DayTable{
     return this.ContentTable;
   }
 }
+function getDay(){
+  let days = [7, 1, 2, 3, 4, 5, 6];
+  let d = new Date();
+  let n = d.getDay();
+  //console.log(days[n]);
+  return days[n]
+}
 document.addEventListener('DOMContentLoaded', function(event) {
   let globalParent = document.getElementById("main");
   let toDel = document.getElementById("jsdontwork");
@@ -33,15 +43,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
   //
   let columns=[document.createElement('div'), document.createElement('div'), document.createElement('div')];
 
-  const Monday = new DayTable("Понедельник", ["Русский", "Химия", "История", "Алгебра", "Ин.яз", "Практикум", "Русский2"]);
+  const Monday = new DayTable("Понедельник", ["Русский", "Химия", "История", "Алгебра", "Ин.яз", "Практикум", "Русский2"], getDay()==1);
   columns[0].appendChild(Monday.getTable());
-  const Tuesday = new DayTable("Вторник", ["Геометрия", "Физра", "Биология", "Общество", "Физика", "История", "Литра"]);
+  const Tuesday = new DayTable("Вторник", ["Геометрия", "Физра", "Биология", "Общество", "Физика", "История", "Литра"], getDay()==2);
   columns[1].appendChild(Tuesday.getTable());
-  const Wednesday = new DayTable("Среда", ["Физра","Физика", "Ин.яз", "Общество", "Алгебра", "История", "Литра"]);
+  const Wednesday = new DayTable("Среда", ["Физра","Физика", "Ин.яз", "Общество", "Алгебра", "История", "Литра"], getDay()==3);
   columns[2].appendChild(Wednesday.getTable());
-  const Thursday = new DayTable("Четверг", ["Биология","Астрономия", "Литра", "Геометрия", "Химия", "Литра", "Практикум"]);
+  const Thursday = new DayTable("Четверг", ["Биология","Астрономия", "Литра", "Геометрия", "Химия", "Литра", "Практикум"], getDay()==4);
   columns[0].appendChild(Thursday.getTable());
-  const Friday = new DayTable("Пятница", ["Информатика","География", "ОБЖ", "Ин.яз", "Практикум", "Физра"]);
+  const Friday = new DayTable("Пятница", ["Информатика","География", "ОБЖ", "Ин.яз", "Практикум", "Физра"], getDay()==5);
   columns[1].appendChild(Friday.getTable());
   columns[0].className="split left";
   columns[1].className="split middle"
