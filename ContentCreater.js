@@ -43,7 +43,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
   //
   let columns=[document.createElement('div'), document.createElement('div'), document.createElement('div')];
 
+<<<<<<< HEAD
   const Monday = new DayTable("Понедельник", ["Русский", "Химия", "История", "Алгебра", "Ин.яз", "Практикум", "Русский2"], getDay()==1);
+=======
+  const Monday = new DayTable("Понедельник", ["Русский", "Химия", "История", "Алгебра", "Ин.яз", "Алегбра", "Литра"]);
+>>>>>>> db13781b578b473467bcb20cdd40662604900cdf
   columns[0].appendChild(Monday.getTable());
   const Tuesday = new DayTable("Вторник", ["Геометрия", "Физра", "Биология", "Общество", "Физика", "История", "Литра"], getDay()==2);
   columns[1].appendChild(Tuesday.getTable());
