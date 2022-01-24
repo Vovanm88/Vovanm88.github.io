@@ -42,15 +42,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
   //globalParent.innerText = "IT WORKS AAAAAAAAA";
   //
   let columns=[document.createElement('div'), document.createElement('div'), document.createElement('div')];
-  const Monday = new DayTable("Понедельник", ["Русский", "Химия", "История", "Алгебра", "Ин.яз", "Практикум", "Русский2"], getDay()==1);
+  const Monday = new DayTable("Понедельник", ["Русский", "Химия", "История", "Ин.яз", "Матпракт", "Матпракт", "Русский"], getDay()==1);
   columns[0].appendChild(Monday.getTable());
   const Tuesday = new DayTable("Вторник", ["Геометрия", "Физра", "Биология", "Общество", "Физика", "История", "Литра"], getDay()==2);
   columns[1].appendChild(Tuesday.getTable());
-  const Wednesday = new DayTable("Среда", ["Физра","Физика", "Ин.яз", "Общество", "Алгебра", "История", "Литра"], getDay()==3);
+  const Wednesday = new DayTable("Среда", ["Физра", "Физика", "Ин.яз", "Общество", "Алгебра", "Биология"], getDay()==3);
   columns[2].appendChild(Wednesday.getTable());
-  const Thursday = new DayTable("Четверг", ["Биология","Астрономия", "Литра", "Геометрия", "Химия", "Литра", "Практикум"], getDay()==4);
+  const Thursday = new DayTable("Четверг", ["ИСТАВрия","Химия", "Литра", "Алгебра", "Алгебра", "Русский", "Литра"], getDay()==4);
   columns[0].appendChild(Thursday.getTable());
-  const Friday = new DayTable("Пятница", ["Информатика","География", "ОБЖ", "Ин.яз", "Практикум", "Физра"], getDay()==5);
+  const Friday = new DayTable("Пятница", ["Ин.яз", "ОБЖ", "География", "Информатика", "Геометрия", "Физра", "Литра"], getDay()==5);
   columns[1].appendChild(Friday.getTable());
   columns[0].className="split left";
   columns[1].className="split middle"
