@@ -4,7 +4,7 @@ var dx = 2;
 var dy = 2;
 var draw, rect, circ, line;
 var radius = 1;
-var k_hooka = 5;
+var k_hooka = 6;
 var x_podvesa = 50;
 var y_podvesa = 1;
 var mass = 1;
@@ -33,19 +33,20 @@ SVG.on(document, 'DOMContentLoaded', function() {
     p_circ2 = draw.circle(crds2_[2]).move(crds2_[0], crds2_[1]).fill('#006488');
     setInterval(function() {
         collide(pend.ball, pend2.ball, (20 / 1000));
+
         thrd_ = pend.getThreadCoords(szhat);
         tens_ = pend.getTensionWidth(szhat);
         p_line.plot(thrd_).stroke({ color: '#648800', width: tens_, linecap: 'round' });;
         crds_ = pend.getBallCoords(szhat);
         p_circ.move(crds_[0], crds_[1]);
-        pend.step((20 / 1000));
 
         tens2_ = pend2.getTensionWidth(szhat);
-
         thrd2_ = pend2.getThreadCoords(szhat);
         p_line2.plot(thrd2_).stroke({ color: '#008864', width: tens2_, linecap: 'round' });
         crds2_ = pend2.getBallCoords(szhat);
         p_circ2.move(crds2_[0], crds2_[1]);
+
+        pend.step((20 / 1000));
         pend2.step((20 / 1000));
     }, 20);
 });
