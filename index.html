@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>SVG Demo</title>
+    <title>Маятники демка</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@latest/dist/svg.min.js"></script>
+    <link rel="stylesheet" href="harry_styles.css">
 </head>
 
 <body>
@@ -16,11 +17,27 @@
     <script type="text/javascript" src="fixed_point.js"></script>
     <script type="text/javascript" src="pendulum.js"></script>
     <script type="text/javascript" src="collision.js"></script>
+    <script type="text/javascript" src="drawer.js"></script>
     <script type="text/javascript" src="main.js"></script>
-
-    <div id="draw_field">
+    <div id="title">
+        <span>Проект по физике би лайк:</span>
     </div>
-
+    <div id="pannel">
+        <button type="button" id="start">Start</button>
+        <button type="button" id="stop">Stop</button>
+        <label for="time">Время одного кадра (мс) </label>
+        <input type="number" id="sim_time" name="time" value="20" />
+        <label for="time_mul">Ускорение времени (1 -- совпадает с реальным)</label>
+        <input type="number" id="time_mult" name="time_mul" min="0.001" value="1" />
+        <label for="hok">Коэффициент в законе Гука</label>
+        <input type="number" id="hook_text" name="hol" min="0.01" value="50" />
+        <span>Сюда нужно добавить еще конструктор маятников но это сложно...</span>
+    </div>
+    <div id="centr">
+        <div id="draw_field">
+            <span></span>
+        </div>
+    </div>
 </body>
 
 </html>

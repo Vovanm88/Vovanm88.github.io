@@ -17,3 +17,15 @@ function collide(ball1, ball2, dT) {
     }
     return false;
 }
+
+function collision_control(arr, dT = 1) {
+    let collides = 0;
+    for (i = 1; i < arr.length; i++) {
+        for (j = 0; j < i; j++) {
+            if (collide(arr[i].ball, arr[j].ball, dT)) {
+                collides += 1;
+            }
+        }
+    }
+    return collides;
+}
