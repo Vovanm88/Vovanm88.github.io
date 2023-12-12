@@ -4,6 +4,7 @@
 //import "physical_ball";
 //import "fixed_point";
 class pendulum {
+    
     constructor(mass = 1, radius = 1, len = 3, k = 1, x = 0, y = 0) {
         this.ball = new physical_ball(mass, radius, x, y + len);
         this.point = new fixed_point(x, y);

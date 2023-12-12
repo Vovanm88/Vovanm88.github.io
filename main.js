@@ -8,6 +8,12 @@ var p_circ, p_line = null;
 var p_circ2, p_line2;
 var p_circ3, p_line3;
 
+
+function createPendulum(x, y) {
+    return new pendulum(mass, radius, dlina, k_hooka, x, y);
+}
+
+
 function simulation(pends, lines, circles, colors, step_time = 1, coor_coef = 1) {
 
     collision_control(pends, step_time)
@@ -32,6 +38,8 @@ function start() {
     var dx = 2;
     var dy = 2;
 
+    var numPends = 3;
+
     var radius = 1;
     var k_hooka = parseFloat(document.getElementById("hook_text").value);
     var x_podvesa = 50;
@@ -39,29 +47,40 @@ function start() {
     var mass = 1;
     var dlina = 20;
     var szhat = 10; //коэффициент растяжения координат в координаты свгшки
+    // getting from index html radius, mass, length
+    radius = parseFloat(document.getElementById("radius").value);
+    mass = parseFloat(document.getElementById("mass").value);
+    dlina = parseFloat(document.getElementById("length").value);
+    numPends = parseFloat(document.getElementById("pendulums").value);
+
     //constructor(mass = 1, radius = 1, len = 3, k = 1, x = 0, y = 0)
-    var pend = new pendulum(mass, radius, dlina, k_hooka, x_podvesa, y_podvesa);
-    var pend2 = new pendulum(mass, radius, dlina, k_hooka, x_podvesa + 2, y_podvesa);
-    var pend3 = new pendulum(mass, radius, dlina, k_hooka, x_podvesa - 2, y_podvesa);
-    if (p_line == null) {
-        let crds_ = pend.getBallCoords(szhat);
-        let thrd_ = pend.getThreadCoords(szhat);
-        let tens_ = pend.getTensionWidth(szhat);
-        p_line = draw.line(thrd_).stroke({ color: '#648800', width: (tens_), linecap: 'round' });
-        p_circ = draw.circle(crds_[2]).move(crds_[0], crds_[1]).fill('#886400');
-        p_line2 = draw.line(thrd_).stroke({ color: '#008864', width: tens_, linecap: 'round' });
-        p_circ2 = draw.circle(crds_[2]).move(crds_[0], crds_[1]).fill('#006488');
-        p_line3 = draw.line(thrd_).stroke({ color: '#880064', width: tens_, linecap: 'round' });
-        p_circ3 = draw.circle(crds_[2]).move(crds_[0], crds_[1]).fill('#640088');
+    let gpends = [];
+    let glines = [];
+    let gcircles = [];
+    let gcolors = ['#648800', '#008864', '#880064'];
+
+    for (let i = 0; i < numPends; i++) {
+        const xOffset = i * 2 * radius;
+        const pendulumInstance = new pendulum(mass, radius, dlina, k_hooka, x_podvesa + xOffset, y_podvesa);
+        
+        const crds_ = pendulumInstance.getBallCoords(szhat);
+        const thrd_ = pendulumInstance.getThreadCoords(szhat);
+        const tens_ = pendulumInstance.getTensionWidth(szhat);
+    
+        const line = draw.line(thrd_).stroke({ color: gcolors[i % 3], width: tens_, linecap: 'round' });
+        const circle = draw.circle(crds_[2]).move(crds_[0], crds_[1]).fill(gcolors[i % 3]);
+        gpends.push(pendulumInstance);
+        glines.push(line);
+        gcircles.push(circle);
+        gcolors.push(gcolors[i % 3]);
     }
-    gpends = [pend, pend2, pend3];
-    glines = [p_line, p_line2, p_line3];
-    gcircles = [p_circ, p_circ2, p_circ3];
-    gcolors = ['#648800', '#008864', '#880064'];
+
+
     var frame_time = parseInt(document.getElementById("sim_time").value);
     var time_multiplier = parseFloat(document.getElementById("time_mult").value);
     var stepTime = (frame_time / 1000) * time_multiplier;
-    pend2.ball.v = new vec2d(10, 0);
+
+    gpends[gpends.length - 1].ball.v = new vec2d(10, 0);
     if (timerID == null) {
         frame_time = 20;
         timerID = setInterval(function() { simulation(gpends, glines, gcircles, gcolors, stepTime, szhat) }, frame_time);
@@ -69,6 +88,13 @@ function start() {
 }
 
 function stop() {
+    // clear all pends
+    delete_pendulums();
+    for (let i = 0; i < glines.length; i++) {
+        glines[i].remove();
+        gcircles[i].remove();
+    }
+    gpends = [];
     if (timerID != null) {
         clearInterval(timerID);
         timerID = null;
