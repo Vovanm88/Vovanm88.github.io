@@ -69,6 +69,7 @@ function start() {
     
         const line = draw.line(thrd_).stroke({ color: gcolors[i % 3], width: tens_, linecap: 'round' });
         const circle = draw.circle(crds_[2]).move(crds_[0], crds_[1]).fill(gcolors[i % 3]);
+        
         gpends.push(pendulumInstance);
         glines.push(line);
         gcircles.push(circle);
@@ -106,3 +107,8 @@ SVG.on(document, 'DOMContentLoaded', function() {
     document.getElementById("start").onclick = start;
     document.getElementById("stop").onclick = stop;
 });
+
+function reload() {
+    location.reload();
+}
+

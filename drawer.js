@@ -10,8 +10,9 @@ function draw_pendulum(line_obj, circle_obj, pend_obj, colr = "#648800", coords_
 // function to delete all pendulums
 function delete_pendulums() {
     for (let i = 0; i < gpends.length; i++) {
-        gpends[i].ball.v = new vec2d(0, 0);
-        draw_pendulum(glines[i], gcircles[i], gpends[i], gcolors[i], 1);
+        line_obj.remove();
+        circle_obj.remove();
+
     }
     gpends = [];
     glines = [];
