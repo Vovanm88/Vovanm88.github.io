@@ -8,6 +8,7 @@ class physical_thread extends physical_object {
         this.con1 = connection_object_1;
         this.con2 = connection_object_2;
         this.k = k;
+        this.graphic_tension = 0;
     }
     calc_force(dT) {
         let pos1 = this.con1.pos;
@@ -18,8 +19,8 @@ class physical_thread extends physical_object {
         let p2 = pos2.sum(vel2.mul(dT));
         let l = p1.sub(p2).len();
         let dl = Math.max(l - this.l, 0.1);
-
         let forceScalar = dl * this.k;
+        this.graphic_tension = this.l / (l * l + 0.1);
         // force from thread to connection 1
         let F1 = pos2.sub(pos1).norm().mul(forceScalar);
         // force from thread to connection 2

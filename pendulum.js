@@ -14,10 +14,16 @@ class pendulum {
         this.ball.recalc_force(frc[1]);
         this.ball.make_step(dT);
     }
-    getBallCoords() {
-        return [this.ball.pos.x - this.ball.r, this.ball.pos.y - this.ball.r, this.ball.r * 2];
+    getBallCoords(tr_coef = 1) {
+        return [(this.ball.pos.x - this.ball.r) * tr_coef, (this.ball.pos.y - this.ball.r) * tr_coef, this.ball.r * 2 * tr_coef];
     }
-    getThreadCoords() {
-        return [this.point.pos.x, this.point.pos.y, this.ball.pos.x, this.ball.pos.y];
+    getThreadCoords(tr_coef = 1) {
+        return [this.point.pos.x * tr_coef, this.point.pos.y * tr_coef, this.ball.pos.x * tr_coef, this.ball.pos.y * tr_coef];
+    }
+    getTensionWidth(tr_coef = 1) {
+        //let tens = 1 - (this.string.graphic_tension / (Math.abs(this.string.graphic_tension) * +0.1));
+        //let tens = (1 / (this.string.graphic_tension * this.string.graphic_tension + 1));
+        let tens = this.string.graphic_tension;
+        return 1 + Math.min(Math.max(tens * tr_coef * 2, 0), tr_coef * 2);
     }
 }

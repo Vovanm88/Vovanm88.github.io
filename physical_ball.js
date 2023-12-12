@@ -11,10 +11,15 @@ class physical_ball extends physical_object {
         this.r = radius;
     }
     test_collision(other) {
-        return this.pos.sub(other.pos).sqrlen() + this.EPS <= (this.r + other.r) * (this.r + other.r);
+        return this.pos.sub(other.pos).sqrlen() <= (this.r + other.r) * (this.r + other.r);
     }
     test_collision_time(other, dT) {
-        return this.pos.sum(this.v.mul(dT)).sub(other.pos.sum(other.v.mul(dT))).sqrlen() + this.EPS <= (this.r + other.r) * (this.r + other.r);
+        let newPos1 = this.pos.sum(this.v.mul(dT));
+        let newPos2 = other.pos.sum(other.v.mul(dT));
+        let dist = newPos1.sub(newPos2).sqrlen()
+        let dballrot = (this.r + other.r);
+        let dball = dballrot * dballrot;
+        return dist <= dball;
     }
     add_acc(dT) {
         this.v = this.v.sum(this.a.mul(dT));
